@@ -5,6 +5,8 @@ import lk.ijse.springpos.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/customer")
 public class CustomerController {
@@ -23,5 +25,10 @@ public class CustomerController {
     @DeleteMapping(value = "{id}")
     public boolean deleteCustomer(@PathVariable("id") String id){
         return customerService.deleteCustomer(id);
+    }
+
+    @GetMapping
+    public List<CustomerDto> getAllCustomers(){
+        return customerService.getAllCustomer();
     }
 }

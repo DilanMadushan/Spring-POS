@@ -9,6 +9,8 @@ import lk.ijse.springpos.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -47,5 +49,15 @@ public class CustomerService {
         }else{
             return false;
         }
+    }
+
+    public List<CustomerDto> getAllCustomer() {
+        List<Customer> all = customerDAO.findAll();
+        List<CustomerDto> customerDto = new ArrayList<>();
+
+        for (Customer customer : all) {
+            customerDto.add(map.toCustomerDto(customer));
+        }
+        return customerDto;
     }
 }
