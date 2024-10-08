@@ -19,4 +19,9 @@ public class CustomerController {
     public CustomerDto updateCustomer(@PathVariable("id") String id , @RequestBody CustomerDto customerDto){
         return customerService.updateCustomer(id,customerDto);
     }
+
+    @DeleteMapping(value = "{id}")
+    public boolean deleteCustomer(@PathVariable("id") String id){
+        return customerService.deleteCustomer(id);
+    }
 }

@@ -39,4 +39,13 @@ public class CustomerService {
         }
         return null;
     }
+
+    public boolean deleteCustomer(String id) {
+        if (customerDAO.existsById(id)) {
+            customerDAO.deleteById(id);
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
