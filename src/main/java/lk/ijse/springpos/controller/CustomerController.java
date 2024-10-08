@@ -11,7 +11,12 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
     @PostMapping
-    public CustomerDto getAllCustomer(@RequestBody CustomerDto customerDto){
+    public CustomerDto getAllSave(@RequestBody CustomerDto customerDto){
         return customerService.saveCustomer(customerDto);
+    }
+
+    @PatchMapping(value = "{id}")
+    public CustomerDto updateCustomer(@PathVariable("id") String id , @RequestBody CustomerDto customerDto){
+        return customerService.updateCustomer(id,customerDto);
     }
 }
