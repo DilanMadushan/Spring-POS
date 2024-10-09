@@ -60,4 +60,14 @@ public class CustomerService {
         }
         return customerDto;
     }
+
+    public CustomerDto findCustomer(String id) {
+        Optional<Customer> byId = customerDAO.findById(id);
+
+        if (byId.isPresent()) {
+            Customer customer = byId.get();
+            return map.toCustomerDto(customer);
+        }
+        return null;
+    }
 }
