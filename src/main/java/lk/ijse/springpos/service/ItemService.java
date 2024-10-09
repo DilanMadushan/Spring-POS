@@ -9,6 +9,8 @@ import lk.ijse.springpos.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,5 +37,15 @@ public class ItemService {
 
     public void deleteItem(String id) {
         itemDAO.deleteById(id);
+    }
+
+    public List<ItemDTO> getAllItems() {
+        List<Item> all = itemDAO.findAll();
+        List<ItemDTO> allDto = new ArrayList<>();
+
+        for (Item item : all) {
+            allDto.add(map.toItemDTO(item));
+        }
+        return allDto;
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/item")
 public class ItemController {
@@ -14,8 +16,8 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
     @GetMapping
-    public String getAllItem(){
-        return "Item";
+    public List<ItemDTO> getAllItem(){
+        return itemService.getAllItems();
     }
 
     @PostMapping
