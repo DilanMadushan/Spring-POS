@@ -1,6 +1,6 @@
 package lk.ijse.springpos.controller;
 
-import lk.ijse.springpos.dto.CustomerDto;
+import lk.ijse.springpos.dto.CustomerDTO;
 import lk.ijse.springpos.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +15,13 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
     @PostMapping
-    public ResponseEntity<?> getAllSave(@RequestBody CustomerDto customerDto){
+    public ResponseEntity<?> getAllSave(@RequestBody CustomerDTO customerDto){
         customerService.saveCustomer(customerDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PatchMapping(value = "{id}")
-    public ResponseEntity<?> updateCustomer(@PathVariable("id") String id , @RequestBody CustomerDto customerDto){
+    public ResponseEntity<?> updateCustomer(@PathVariable("id") String id , @RequestBody CustomerDTO customerDto){
         customerService.updateCustomer(id,customerDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -33,12 +33,12 @@ public class CustomerController {
     }
 
     @GetMapping
-    public List<CustomerDto> getAllCustomers(){
+    public List<CustomerDTO> getAllCustomers(){
         return customerService.getAllCustomer();
     }
 
     @GetMapping(value = "{id}")
-    public CustomerDto findCustomer(@PathVariable("id") String id){
+    public CustomerDTO findCustomer(@PathVariable("id") String id){
         return customerService.findCustomer(id);
     }
 }

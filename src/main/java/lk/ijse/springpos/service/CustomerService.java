@@ -2,7 +2,7 @@ package lk.ijse.springpos.service;
 
 import jakarta.transaction.Transactional;
 import lk.ijse.springpos.dao.CustomerDAO;
-import lk.ijse.springpos.dto.CustomerDto;
+import lk.ijse.springpos.dto.CustomerDTO;
 import lk.ijse.springpos.entity.Customer;
 import lk.ijse.springpos.util.Conveter;
 import lk.ijse.springpos.util.Map;
@@ -23,7 +23,7 @@ public class CustomerService {
     @Autowired
     private Conveter conveter;
 
-    public CustomerDto saveCustomer(CustomerDto customerDto){
+    public CustomerDTO saveCustomer(CustomerDTO customerDto){
         Customer save = customerDAO.save(map.toCustomerEntity(customerDto));
         if (save !=null){
             return map.toCustomerDto(save);
@@ -31,7 +31,7 @@ public class CustomerService {
         return null;
     }
 
-    public CustomerDto updateCustomer(String id, CustomerDto customerDto) {
+    public CustomerDTO updateCustomer(String id, CustomerDTO customerDto) {
         Optional<Customer> byId = customerDAO.findById(id);
 
         if (byId.isPresent()) {
@@ -51,9 +51,9 @@ public class CustomerService {
         }
     }
 
-    public List<CustomerDto> getAllCustomer() {
+    public List<CustomerDTO> getAllCustomer() {
         List<Customer> all = customerDAO.findAll();
-        List<CustomerDto> customerDto = new ArrayList<>();
+        List<CustomerDTO> customerDto = new ArrayList<>();
 
         for (Customer customer : all) {
             customerDto.add(map.toCustomerDto(customer));
@@ -61,7 +61,7 @@ public class CustomerService {
         return customerDto;
     }
 
-    public CustomerDto findCustomer(String id) {
+    public CustomerDTO findCustomer(String id) {
         Optional<Customer> byId = customerDAO.findById(id);
 
         if (byId.isPresent()) {
