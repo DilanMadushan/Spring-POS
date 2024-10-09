@@ -32,4 +32,8 @@ public class ItemService {
             conveter.itemConvter(item, itemDTO);
         }
     }
+
+    public void deleteItem(String id) {
+        itemDAO.deleteById(id);
+    }
 }
