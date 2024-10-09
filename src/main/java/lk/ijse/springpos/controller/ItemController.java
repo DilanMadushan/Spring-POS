@@ -37,4 +37,9 @@ public class ItemController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    @GetMapping(value = "{id}")
+    public ItemDTO getItem(@PathVariable("id") String id){
+        return itemService.findItem(id);
+    }
+
 }

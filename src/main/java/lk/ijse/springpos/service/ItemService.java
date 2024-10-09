@@ -48,4 +48,15 @@ public class ItemService {
         }
         return allDto;
     }
+
+    public ItemDTO findItem(String id) {
+        Optional<Item> byId = itemDAO.findById(id);
+
+        if (byId.isPresent()) {
+            Item item = byId.get();
+            return map.toItemDTO(item);
+        }
+        return null;
+
+    }
 }
