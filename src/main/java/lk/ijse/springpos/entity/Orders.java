@@ -21,5 +21,5 @@ public class Orders {
     @JoinColumn(name = "cusId",nullable = false)
     private Customer customer;
     @OneToMany(mappedBy = "orders")
-    private List<OrderDetails> orderDetails;
+    private List<OrderDetails> items;
 }

@@ -13,8 +13,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "OrderDetails")
 public class OrderDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long detailId;
+    private String detailId;
     @ManyToOne
     @JoinColumn(name = "orderId")
     private Orders orders;
