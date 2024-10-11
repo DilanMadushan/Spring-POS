@@ -59,4 +59,8 @@ public class ItemService {
         return null;
 
     }
+
+    public String getLastIndex() {
+        return itemDAO.getLastIndex();
+    }
 }

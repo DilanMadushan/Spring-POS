@@ -42,4 +42,9 @@ public class ItemController {
         return itemService.findItem(id);
     }
 
+    @GetMapping("/last")
+    public String getLastIndex(){
+        return itemService.getLastIndex();
+    }
+
 }

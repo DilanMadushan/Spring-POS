@@ -42,7 +42,7 @@ public class CustomerController {
         return customerService.findCustomer(id);
     }
 
-    @GetMapping("/find")
+    @GetMapping("/last")
     public String getLatIndex(){
         return customerService.getLatIndex();
     }
