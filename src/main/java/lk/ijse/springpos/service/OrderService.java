@@ -77,4 +77,8 @@ public class OrderService {
         }
 
     }
+
+    public String getLastIndex() {
+        return orderDAO.getLastIndex();
+    }
 }

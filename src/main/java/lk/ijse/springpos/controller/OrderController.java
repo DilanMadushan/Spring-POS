@@ -33,4 +33,9 @@ public class OrderController{
 
         orderService.placeOrder(orderDTO);
     }
+
+    @GetMapping("/last")
+    public String getLastIndex(){
+        return orderService.getLastIndex();
+    }
 }
