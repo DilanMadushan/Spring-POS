@@ -70,4 +70,8 @@ public class CustomerService {
         }
         return null;
     }
+
+    public String getLatIndex() {
+        return customerDAO.getLatIndex();
+    }
 }

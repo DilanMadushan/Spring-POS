@@ -41,4 +41,9 @@ public class CustomerController {
     public CustomerDTO findCustomer(@PathVariable("id") String id){
         return customerService.findCustomer(id);
     }
+
+    @GetMapping("/find")
+    public String getLatIndex(){
+        return customerService.getLatIndex();
+    }
 }
