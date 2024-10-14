@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping("api/v1/order")
 public class OrderController{
