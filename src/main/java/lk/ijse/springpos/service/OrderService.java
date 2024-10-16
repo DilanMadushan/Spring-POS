@@ -1,7 +1,5 @@
 package lk.ijse.springpos.service;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.transaction.Transactional;
 import lk.ijse.springpos.dao.CustomerDAO;
 import lk.ijse.springpos.dao.ItemDAO;
@@ -14,11 +12,12 @@ import lk.ijse.springpos.entity.Item;
 import lk.ijse.springpos.entity.OrderDetails;
 import lk.ijse.springpos.entity.Orders;
 import lk.ijse.springpos.util.Map;
-import org.hibernate.query.Order;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 import java.util.Optional;
 import java.util.UUID;
 
@@ -35,6 +34,8 @@ public class OrderService {
     private CustomerDAO  customerDAO;
     @Autowired
     private ItemDAO itemDAO;
+
+     private static Logger logger = LoggerFactory.getLogger("OrderService");
     public void placeOrder(OrderDTO orderDTO){
         try {
 
@@ -68,12 +69,15 @@ public class OrderService {
                 if (pro.isPresent()) {
                     Item items = pro.get();
                     items.setQty(items.getQty() - item.getQty());
+                    logger.info("Order Placed Successfully");
                 }
             }
 
 
+
         }catch (Exception e){
             e.printStackTrace();
+            logger.error(e.getMessage());
         }
 
     }
