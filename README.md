@@ -21,9 +21,13 @@ Sunshine POS is designed to help businesses of all sizes manage their sales, inv
 
 ## 🛠️ **Installation**
 
-1. Clone the repository:
+1. Clone the Backend  repository:
    ```bash
-   git clone https://github.com/your-repo/sunshine-pos.git
+   https://github.com/DilanMadushan/Spring-POS.git
+
+2. Clone the Front-end repository:
+   ```bash
+   https://github.com/DilanMadushan/Spring-POS.git
 
 ---
 
